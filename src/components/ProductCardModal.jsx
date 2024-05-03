@@ -8,24 +8,7 @@ import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import CloseIcon from "@mui/icons-material/Close";
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 300,
-  height: 450,
-  bgcolor: "background.paper",
-  border: "1px solid #000",
-  boxShadow: 24,
-  p: 4,
-  display: "flex",
-  textAlign: "center",
-  justifyContent: "center",
-  alignItems: "center",
-  flexDirection: "column",
-};
+import { useMediaQuery } from "@mui/material";
 
 const ProductCardModal = ({
   open,
@@ -37,6 +20,26 @@ const ProductCardModal = ({
   description,
   handleProduct,
 }) => {
+  const isSmallScreen = useMediaQuery("(max-width:600px)");
+
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 300,
+    height: isSmallScreen ? 550 : 650, 
+    bgcolor: "background.paper",
+    border: "1px solid #000",
+    boxShadow: 24,
+    p: 4,
+    display: "flex",
+    textAlign: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+  };
+
   return (
     <Modal
       open={open}

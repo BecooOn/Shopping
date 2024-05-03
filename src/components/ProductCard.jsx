@@ -16,8 +16,6 @@ import ProductCardModal from "./ProductCardModal";
 const ProductCard = ({ image, title, price, category, description, id }) => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const modal = { image, title, price, category, description, id };
 
   const handleProduct = () => {
