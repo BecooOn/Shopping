@@ -15,8 +15,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { Badge } from "@mui/material";
 // import SwitchMode from "./SwitchMode";
 
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = ["Home", "Pricing"];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -41,7 +40,7 @@ function Navbar() {
     <AppBar
       position="static"
       color="secondary"
-      sx={{ backgroundColor: "violet" }}
+      sx={{ backgroundColor: "violet",p:"10px" }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -59,7 +58,7 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            SHOPPING
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -131,7 +130,7 @@ function Navbar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
                 <Badge badgeContent={4}>
-                  <Typography fontSize="36px">🛍</Typography>
+                  <Typography fontSize="40px">🛍</Typography>
                 </Badge>
             </Tooltip>
           </Box>
