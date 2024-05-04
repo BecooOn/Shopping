@@ -9,11 +9,16 @@ import Box from "@mui/material/Box";
 import ArrowDropUpOutlinedIcon from "@mui/icons-material/ArrowDropUpOutlined";
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import CloseIcon from "@mui/icons-material/Close";
+import Swal from "sweetalert2";
+
 import {
+  clearBasket,
   decrementBasket,
   incrementBasket,
   removeProduct,
 } from "../redux/action/basketAction";
+import { IconButton } from "@mui/material";
 
 const FilledBasketTotal = () => {
   const basket = useSelector((state) => state.basket);
@@ -30,20 +35,43 @@ const FilledBasketTotal = () => {
       if (item.quantity > 1) {
         return dispatch(decrementBasket(id));
       }
+    } else {
+      dispatch(removeProduct(id));
     }
-    // else{
-
-    // }
   };
 
   const handleRemove = () => {
-    dispatch(removeProduct());
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(clearBasket());
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your basket has been deleted.",
+          icon: "success",
+        });
+      }
+    });
+  };
+
+  const handlePrice = () => {
+    let total = 0;
+    basket.forEach((item) => {
+      total += item.price * item.quantity;
+    });
+    return total.toFixed(2);
   };
 
   return (
     <Box
       sx={{
-        border: "4px solid red",
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "center",
@@ -55,7 +83,6 @@ const FilledBasketTotal = () => {
     >
       <Box
         sx={{
-          border: "2px solid black",
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
@@ -75,8 +102,17 @@ const FilledBasketTotal = () => {
               p: "10px",
               m: "20px",
               textAlign: "center",
+              position: "relative",
             }}
           >
+            <CardActions sx={{ position: "absolute", top: 0, right: 0 }}>
+              <IconButton
+                onClick={() => handleBasket(item.id, "delete")}
+                sx={{ border: "1px solid red", color: "red" }}
+              >
+                <CloseIcon />
+              </IconButton>
+            </CardActions>
             <CardMedia
               component="img"
               alt={item.image}
@@ -118,7 +154,6 @@ const FilledBasketTotal = () => {
       </Box>
       <Box
         sx={{
-          border: "4px solid red",
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "space-evenly",
@@ -128,14 +163,16 @@ const FilledBasketTotal = () => {
           padding: "24px 5px",
         }}
       >
-        <Typography color="primary" borderBottom="3px solid" p={1}>
-          Subtotal :<span color="orange">{}$ </span>
+        <Typography sx={{ border: "1px solid #1976D2", px: "16px", py: "6px" }}>
+          <span className="total">Subtotal :</span>
+          <span className="total-price">{handlePrice()}$ </span>
         </Typography>
         <Button
           sx={{ width: "40px", height: "50px", "&:hover": { color: "red" } }}
           onClick={handleRemove}
         >
           <DeleteForeverIcon sx={{ fontSize: "45px", m: "20px" }} />
+          <span>Clear all</span>
         </Button>
       </Box>
     </Box>

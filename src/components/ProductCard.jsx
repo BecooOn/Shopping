@@ -6,13 +6,12 @@ import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { Box, Button } from "@mui/material";
-// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import Swal from "sweetalert2";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import SendIcon from "@mui/icons-material/Send";
 import { useDispatch, useSelector } from "react-redux";
 import { addBasket } from "../redux/action/basketAction";
 import ProductCardModal from "./ProductCardModal";
-import { toastWarnNotify } from "../helper/ToastNotify";
 
 const ProductCard = ({ image, title, price, category, description, id }) => {
   const basket = useSelector((state) => state.basket);
@@ -26,8 +25,11 @@ const ProductCard = ({ image, title, price, category, description, id }) => {
         addBasket({ image, description, title, category, price, id })
       );
     } else {
-      console.log("no");
-      toastWarnNotify("Already in basket");
+      Swal.fire({
+        icon: "warning",
+        title: "Oops...",
+        text: "Already in basket!",
+      });
     }
   };
 

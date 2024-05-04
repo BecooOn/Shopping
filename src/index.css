@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.total{
+  font-size: 24px;
+  font-weight: 700;
+  margin: 10px;
+  text-align: center;
+  color: #1976D2;
+}
+.total-price{
+  font-size: 24px;
+  font-weight: 500;
+  color: orange;
+}

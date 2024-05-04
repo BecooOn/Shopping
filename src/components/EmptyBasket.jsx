@@ -7,9 +7,17 @@ const EmptyBasket = () => {
   return (
     <Box
       component="section"
-      sx={{ p: 2,display:"flex",alignItems: "center",justifyContent:"center",gap:"24px", height:"90vh"}}
+      sx={{
+        p: 2,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "24px",
+        height: "90vh",
+        flexDirection: "column",
+      }}
     >
-      <Typography variant="h2" color="red">
+      <Typography variant="h2" color="red" textAlign="center">
         No items!
       </Typography>
       <Link to="/">

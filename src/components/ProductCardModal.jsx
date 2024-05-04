@@ -28,7 +28,7 @@ const ProductCardModal = ({
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: 300,
-    height: isSmallScreen ? 550 : 650, 
+    height: isSmallScreen ? 520 : 600, 
     bgcolor: "background.paper",
     border: "1px solid #000",
     boxShadow: 24,

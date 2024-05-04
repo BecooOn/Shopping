@@ -13,10 +13,12 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Badge } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const pages = ["Home", "Pricing"];
 
 function Navbar() {
+  const basket = useSelector((state) => state.basket);
   const [anchorElNav, setAnchorElNav] = useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -26,7 +28,6 @@ function Navbar() {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
 
   return (
     <AppBar
@@ -127,10 +128,22 @@ function Navbar() {
             </Link>
           </Box>
           <Link to="/basket">
-            <Box sx={{ flexGrow: 0 }}>
+            <Box>
               <Tooltip title="Open basket">
-                <Badge badgeContent={4}>
-                  <Typography fontSize="40px">🛍</Typography>
+                <Badge
+                  badgeContent={basket.length}
+                  color="secondary"
+                  sx={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: "50%",
+                    width: "50px",
+                    height: "50px",
+                    fontSize: "30px",
+                  }}
+                >
+                  🛍️
                 </Badge>
               </Tooltip>
             </Box>

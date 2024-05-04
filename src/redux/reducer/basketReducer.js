@@ -18,7 +18,7 @@ const basketReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         basket: state.basket.map((item) =>
-          item.id === payload.id
+          item.id === payload
             ? { ...item, quantity: item.quantity + 1 }
             : item
         ),
@@ -27,7 +27,7 @@ const basketReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         basket: state.basket.map((item) =>
-          item.id === payload.id
+          item.id === payload
             ? { ...item, quantity: item.quantity - 1 }
             : item
         ),
