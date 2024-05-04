@@ -7,12 +7,10 @@ const initialState = {
 const basketReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ADD:
-      return { ...state, basket: [...state.basket, ...payload] };
-    //?If you intend to add individual items from the payload array, you might want to use push or concat methods instead of spreading: case ADD:
-    // return { ...state, basket: state.basket.concat(payload) };
-    //?Or, if payload is a single item to add:
-    // case ADD:
-    //   return { ...state, basket: [...state.basket, payload] };
+      return {
+        ...state,
+        basket: [...state.basket, { ...payload, quantity: 1 }],
+      };
 
     case CLR:
       return { ...state, basket: [] };

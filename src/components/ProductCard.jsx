@@ -9,17 +9,26 @@ import { Box, Button } from "@mui/material";
 // import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import SendIcon from "@mui/icons-material/Send";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addBasket } from "../redux/action/basketAction";
 import ProductCardModal from "./ProductCardModal";
+import { toastWarnNotify } from "../helper/ToastNotify";
 
 const ProductCard = ({ image, title, price, category, description, id }) => {
+  const basket = useSelector((state) => state.basket);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
-  const modal = { image, title, price, category, description, id };
+  const modal = { image, title, price, category, description, id }; //? modal'a buradaki verileri gönderebilmek için oluşturdum.
 
   const handleProduct = () => {
-    dispatch(addBasket({ image, description, title, category, price, id }));
+    if (!basket.find((item) => item.id === id)) {
+      return dispatch(
+        addBasket({ image, description, title, category, price, id })
+      );
+    } else {
+      console.log("no");
+      toastWarnNotify("Already in basket");
+    }
   };
 
   return (
@@ -48,7 +57,9 @@ const ProductCard = ({ image, title, price, category, description, id }) => {
           <Typography variant="body2" color="text.secondary">
             {title}
           </Typography>
-          <Typography sx={{fontWeight:"bold", color:"orange"}}>{price} $</Typography>
+          <Typography sx={{ fontWeight: "bold", color: "orange" }}>
+            {price} $
+          </Typography>
         </CardContent>
         <CardActions
           sx={{
@@ -64,7 +75,7 @@ const ProductCard = ({ image, title, price, category, description, id }) => {
             sx={{
               color: "black",
               borderColor: "black",
-              "&:hover": { color: "violet" },
+              "&:hover": { color: "orange", border: "1px solid orange" },
             }}
             startIcon={<SendIcon />}
             onClick={() => setOpen(true)}
@@ -74,9 +85,9 @@ const ProductCard = ({ image, title, price, category, description, id }) => {
           <IconButton
             aria-label="add to cart"
             onClick={handleProduct}
-            sx={{ "&:hover": { color: "violet" } }}
+            sx={{ "&:hover": { color: "orange" } }}
           >
-            <AddShoppingCartIcon />
+            <AddShoppingCartIcon sx={{ fontSize: 30 }} />
           </IconButton>
         </CardActions>
       </Card>

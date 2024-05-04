@@ -9,12 +9,12 @@ export const clearBasket = () => ({
   type: CLR,
 });
 
-export const increment = (id) => ({
+export const incrementBasket = (id) => ({
   type: INC,
   payload: id,
 });
 
-export const decrement = (id) => ({
+export const decrementBasket = (id) => ({
   type: DEC,
   payload: id,
 });

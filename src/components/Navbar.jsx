@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -12,34 +12,27 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Badge } from "@mui/material";
-// import SwitchMode from "./SwitchMode";
+import { Link } from "react-router-dom";
 
 const pages = ["Home", "Pricing"];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
-  const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
 
   return (
     <AppBar
       position="static"
       color="secondary"
-      sx={{ backgroundColor: "violet",p:"10px" }}
+      sx={{ backgroundColor: "violet", p: "10px" }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -116,23 +109,32 @@ function Navbar() {
             SHOPPING
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            <Link to="/" style={{ textDecoration: "none" }}>
               <Button
-                key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                HOME
               </Button>
-            ))}
+            </Link>
+            <Link to="/basket" style={{ textDecoration: "none" }}>
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                PRICING
+              </Button>
+            </Link>
           </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+          <Link to="/basket">
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open basket">
                 <Badge badgeContent={4}>
                   <Typography fontSize="40px">🛍</Typography>
                 </Badge>
-            </Tooltip>
-          </Box>
+              </Tooltip>
+            </Box>
+          </Link>
         </Toolbar>
       </Container>
     </AppBar>

@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import { useSelector } from "react-redux";
+import FilledBasketTotal from "../components/FilledBasketTotal";
+import EmptyBasket from "../components/EmptyBasket";
 
-const Basket = () => {
+const BasketCard = () => {
+  const basket = useSelector((state) => state.basket);
   return (
-    <div>Basket</div>
-  )
-}
+    <div>{basket.length > 0 ? <FilledBasketTotal /> : <EmptyBasket />}</div>
+  );
+};
 
-export default Basket
+export default BasketCard;

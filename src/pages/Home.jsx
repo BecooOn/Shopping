@@ -6,15 +6,19 @@ import { Box, Button } from "@mui/material";
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const getProduct = async () => {
+    setLoading(true);
     try {
       const URL = `https://fakestoreapi.com/products `;
       const res = await axios(URL);
-      console.log(res.data);
+      // console.log(res.data);
       setProducts(res.data);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
   useEffect(() => {
@@ -31,7 +35,15 @@ const Home = () => {
 
   return (
     <Box sx={{ textAlign: "center" }}>
-      <Box sx={{ display: "inline-flex", gap: "10px", p: "24px", flexWrap:"wrap", justifyContent:"center"}}>
+      <Box
+        sx={{
+          display: "inline-flex",
+          gap: "10px",
+          p: "24px",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
+      >
         <Button
           sx={{
             border: "2px solid violet",
@@ -90,9 +102,11 @@ const Home = () => {
       </Box>
 
       <Box>
-        {filterProduct().map((item) => (
-          <ProductCard key={item.id} {...item} />
-        ))}
+        {loading ? (
+          <img src="./loading.gif" alt="loading.." width="200" height="200" />
+        ) : (
+          filterProduct().map((item) => <ProductCard key={item.id} {...item} />)
+        )}
       </Box>
     </Box>
   );
