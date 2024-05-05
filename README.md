@@ -1,9 +1,9 @@
 <h1 align="center" style="font-weight: bold;">Shopping-App</h1>
 
 <p align="center">
-<a href="#tech">Technologies</a>
-<a href="#started">Getting Started</a>
-<a href="#colab">Collaborators</a>
+<a href="#tech">Technologies</a> |
+<a href="#started">Getting Started</a> |
+<a href="#colab">Collaborators</a> |
 <a href="#contribute">Contribute</a> 
 </p>
 
@@ -14,6 +14,15 @@
 <h2 id="started">🚀 Getting started</h2>
 
 This project is a shopping application where users can browse various products and add them to their cart.
+
+<h3>Starting</h3>
+
+How to start the project
+
+```bash
+npm install
+yarn install
+```
  
 ## Project Skeleton
 
@@ -64,10 +73,10 @@ SOLUTION
 - react
 - materialui
 - axios
-- react-redux
-- react-router
-- react-sweetalert2
 - redux
+- react-redux
+- react-router-dom
+- react-sweetalert2
  
 <h3>Cloning</h3>
 
@@ -77,14 +86,6 @@ How to clone the project
 https://github.com/BecooOn/Shopping.git
 ```
  
-<h3>Starting</h3>
-
-How to start the project
-
-```bash
-npm install
-yarn install
-```
  
 <h2 id="contribute">📫 Contribute</h2>
 
