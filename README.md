@@ -29,6 +29,8 @@ SOLUTION
 │     └── loading.gif
 ├── src
 │   ├── App.js
+│   ├── assets
+│   │   └── shopping.gif
 │   ├── components
 │   │   ├── BasketCard.jsx
 │   │   ├── CategoryBar.jsx
