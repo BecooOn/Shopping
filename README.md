@@ -10,6 +10,10 @@
 <p align="center">
 <a href="https://shopping-becoo.netlify.app/">📱 Visit this Project</a>
 </p>
+
+<h2 id="started">🚀 Getting started</h2>
+
+This project is a shopping application where users can browse various products and add them to their cart.
  
 ## Project Skeleton
 
@@ -62,10 +66,6 @@ SOLUTION
 - react-router
 - react-sweetalert2
 - redux
- 
-<h2 id="started">🚀 Getting started</h2>
-
-This project is a shopping application where users can browse various products and add them to their cart.
  
 <h3>Cloning</h3>
 
