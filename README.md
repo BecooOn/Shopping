@@ -1,36 +1,38 @@
-  
-  https://shopping-becoo.netlify.app/
+<h1 align="center" style="font-weight: bold;">Shopping-App</h1>
 
-# Project-009 : Clarus Shopping (RP-09)
+<p align="center">
+<a href="#tech">Technologies</a>
+<a href="#started">Getting Started</a>
+<a href="#colab">Collaborators</a>
+<a href="#contribute">Contribute</a> 
+</p>
 
-## Description
-
-Project aims to create a Clarus Shopping App.
-
-## Problem Statement
-
-- We are adding a new project to our portfolios. So you and your colleagues have started to work on the project.
-
+<p align="center">
+<a href="https://shopping-becoo.netlify.app/">📱 Visit this Project</a>
+</p>
+ 
 ## Project Skeleton
 
 ```
-003 - Clarus Shopping App(folder)
+Shopping App(folder)
 |
-|----readme.md         # Given to the students (Definition of the project)
+|----readme.md    
 SOLUTION
 ├── public
-│     └── index.html
+│     ├── index.html
+│     ├── 404.png
+│     ├── logo.png
+│     └── loading.gif
 ├── src
 │   ├── App.js
-│   ├── assets
-│   │   └── cw.svg
 │   ├── components
 │   │   ├── BasketCard.jsx
 │   │   ├── CategoryBar.jsx
 │   │   ├── EmptyBasketTotal.jsx
-│   │   ├── FiiledBasketTotal.jsx
+│   │   ├── FilledBasketTotal.jsx
 │   │   ├── NavBar.jsx
-│   │   └── ProductCard.jsx
+│   │   ├── ProductCard.jsx
+│   │   └── ProductCardModal.jsx
 │   ├── index.css
 │   ├── index.js
 │   ├── pages
@@ -51,54 +53,42 @@ SOLUTION
 └── yarn.lock
 ```
 
-## Expected Outcome
+<h2 id="technologies">💻 Technologies</h2>
 
-![Project 009 Snapshot](clarus-shopping.gif)
+- react
+- materialui
+- axios
+- react-redux
+- react-router
+- react-sweetalert2
+- redux
+ 
+<h2 id="started">🚀 Getting started</h2>
 
-## Objective
+This project is a shopping application where users can browse various products and add them to their cart.
+ 
+<h3>Cloning</h3>
 
-Build a Clarus Shopping App using ReactJS.
+How to clone the project
 
-### At the end of the project, following topics are to be covered;
+```bash
+https://github.com/BecooOn/Shopping.git
+```
+ 
+<h3>Starting</h3>
 
-- HTML
+How to start the project
 
-- CSS
+```bash
+npm install
+yarn install
+```
+ 
+<h2 id="contribute">📫 Contribute</h2>
 
-- JS
-
-- ReactJS
-
-- React-Redux
-
-- Material UI
-
-### At the end of the project, students will be able to;
-
-- improve coding skills within HTML & CSS & JS & ReactJS.
-
-- use git commands (push, pull, commit, add etc.) and Github as Version Control System.
-
-## Steps to Solution
-
-- Step 1: Create React App using `yarn create react-app clarus-shopping`
-
-- Step 2 : Install `axios`, `redux` , `react-redux`, `react-router-dom`, `mui`, `mui-icons` package to your `package.json`. 
-
-- Step 3: You can use https://fakestoreapi.com/products for data.
-
-- Step 4: You can use https://fakestoreapi.com/products/categories for categories.
-
-- Step 5: Push your application into your own public repo on Github
-
-- Step 6: Add project gif to your project and README.md file.
-
-## Demo
-[Live](https://clarus-shopping.vercel.app/)
-## Notes
-
-- **The product information received from the API does not include a "quantity" key. However, you can add the quantity information when adding a product. This will enable you to easily perform quantity increment and decrement operations in the basket page.**
-
-- You can add additional functionalities to your app.
-
-**<p align="center">&#9786; Happy Coding &#9997;</p>**
+- Fork the project (https://github.com/BecooOn/Shopping.git)
+- Create a feature branch (git checkout -b feature/)
+- Make your changes (git add .)
+- Commit your changes (git commit -m 'Added a new feature')
+- Push to your branch (git push origin feature/)
+- Create a new Pull Request
